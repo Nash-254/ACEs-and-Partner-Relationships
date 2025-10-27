@@ -45,3 +45,8 @@ SELECT
     p_value
 FROM aces_and_partner_rships.ace_pair_associations
 ORDER BY adjusted_odds_ratio DESC;
+
+------------------------------------------------------------------------------
+-- END of Table creation, data insert and queries for Odds Ratios of Partner-Reported ACE Categories One Year Postpartum When Mothers Had the Same Experience.
+-- ===============================================================================
+
