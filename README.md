@@ -15,11 +15,10 @@ The project aims to:
 
 **1. To examine assortative mating by adversity**
 - Identify patterns of partner similarity in reported Adverse Childhood Experiences (ACEs) and determine whether individuals with specific ACE histories are more likely to pair with partners who share similar experiences.
-(Data source: Table 3 — Odds ratios of partner ACE associations)
+***(Data source: Table 3 — Odds ratios of partner ACE associations)***
 
 **2. To assess the cumulative impact of shared ACE exposure on relationship and family outcomes**
-- Compare socioeconomic, emotional, and health outcomes across ACE exposure groups (none, one partner high, both high) to determine how shared childhood adversity affects relationship quality and family well-being.
-(Data source: Table 4 — Couples’ outcomes)
+- Compare socioeconomic, emotional, and health outcomes across ACE exposure groups (none, one partner high, both high) to determine how shared childhood adversity affects relationship quality and family well-being. ***(Data source: Table 4 — Couples’ outcomes)***
 
 ## Tools & Technologies Used
 A hybrid approach integrated **SQL’s efficiency** in data extraction, schema design, and structured data management with **Python’s powerful statistical analysis** and **rich visualization** capabilities, delivering a workflow that was both efficient and insight-driven.
