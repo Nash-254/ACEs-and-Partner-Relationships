@@ -1,8 +1,14 @@
 # ACEs and Partner Relationships
 
 ## Project Overview
-This project explores how **Adverse Childhood Experiences (ACEs)** shape adult relationships, partner choice, and long-term family outcomes. It seeks to investigates the phenomenon of **assortative mating by adversity**—the tendency for individuals with similar ACE histories to form partnerships—and examines how shared childhood trauma affects relationship quality, mental health, and socioeconomic well-being.
+This project explores how **Adverse Childhood Experiences (ACEs)** shape adult relationships, partner choice, and long-term family outcomes. It seeks to investigates the phenomenon of **assortative mating by adversity**—the tendency for individuals with similar ACE histories to form partnerships—and examines how shared childhood trauma affects relationship quality, mental + physical health, and socioeconomic well-being.
+
 ## Data Source
+The data used in this project is drawn from **peer-reviewed journals** mainly from [Plos.org](https://journals.plos.org/plosone/) and [ScienceDirect.com](https://www.sciencedirect.com/) which are open access to the public.
+
+The data in the studies was obtained from 818 couples in Sweden and a large sample of functionally independent older Japanese adults aged 65+ yrs.
+
+See references section for citation details.
 
 ## Project Objectives
 
