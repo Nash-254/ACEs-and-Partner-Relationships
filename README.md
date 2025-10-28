@@ -12,6 +12,7 @@ See references section for citation details.
 
 ## Project Objectives
 The project aims to:
+
 **1. To examine assortative mating by adversity**
 - Identify patterns of partner similarity in reported Adverse Childhood Experiences (ACEs) and determine whether individuals with specific ACE histories are more likely to pair with partners who share similar experiences.
 (Data source: Table 3 — Odds ratios of partner ACE associations)
