@@ -58,7 +58,7 @@ ORDER BY adjusted_odds_ratio DESC;
 -- ================================================================================
 
 -- TABLE CREATION
-CREATE TABLE aces_and_partner_rships.relationship_outcomes (
+CREATE TABLE aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes (
     id SERIAL PRIMARY KEY,
     ace_group VARCHAR(20),
     low_education NUMERIC(5,1),
@@ -72,7 +72,7 @@ CREATE TABLE aces_and_partner_rships.relationship_outcomes (
 );
 
 -- DATA INSERTION
-INSERT INTO aces_and_partner_rships.relationship_outcomes
+INSERT INTO aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 (ace_group, low_education, low_income, bad_spousal_support, rshp_assess_score, bad_health, stress, anxiety, depression)
 VALUES
 ('none', 19.0, 6.4, 5.1, 9.6, 5.2, 5.8, 0, 0),
@@ -82,25 +82,25 @@ VALUES
 ('Both High', 66.7, 33.3, 33.3, 26.7, 40.0, 60.0, 20.0, 13.3);
 
 -- VERIFY DATA INTEGRITY
-SELECT * FROM aces_and_partner_rships.relationship_outcomes;
+SELECT * FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes;
 
 -- DATA QUERY ANALYSIS
 -- Query to show Proportions of outcome measures related to groups of couples with different numbers of ACE category exposure
 SELECT
     ace_group,
-    'Low Income' AS outcome, low_income AS value FROM aces_and_partner_rships.relationship_outcomes
+    'Low Income' AS outcome, low_income AS value FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 UNION ALL
-SELECT ace_group, 'Low Education', low_education FROM aces_and_partner_rships.relationship_outcomes
+SELECT ace_group, 'Low Education', low_education FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 UNION ALL
-SELECT ace_group, 'Bad Spousal Support', bad_spousal_support FROM aces_and_partner_rships.relationship_outcomes
+SELECT ace_group, 'Bad Spousal Support', bad_spousal_support FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 UNION ALL
-SELECT ace_group, 'Depression', depression FROM aces_and_partner_rships.relationship_outcomes
+SELECT ace_group, 'Depression', depression FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 UNION ALL
-SELECT ace_group, 'Anxiety', anxiety FROM aces_and_partner_rships.relationship_outcomes
+SELECT ace_group, 'Anxiety', anxiety FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 UNION ALL
-SELECT ace_group, 'High Stress', stress FROM aces_and_partner_rships.relationship_outcomes
+SELECT ace_group, 'High Stress', stress FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 UNION ALL
-SELECT ace_group, 'Bad Health', bad_health FROM aces_and_partner_rships.relationship_outcomes
+SELECT ace_group, 'Bad Health', bad_health FROM aces_and_partner_rships.aces_and_partner_rships.relationship_outcomes
 ORDER BY outcome, value DESC;
 
 -------------------------------------------------------------------------------
@@ -115,6 +115,7 @@ ORDER BY outcome, value DESC;
 -- ================================================================================
 -- TABLE CREATION
 CREATE TABLE aces_and_partner_rships.regression_results (
+    id SERIAL PRIMARY KEY,
     outcome VARCHAR(50),
     ace_group VARCHAR(20),
     adjusted_odds_ratio NUMERIC(10,2),
@@ -130,8 +131,59 @@ VALUES
 ('Low Income', 'Both High', 3.25, 0.77, 13.68),
 ('Bad Spousal Support', 'Both High', 9.39, 2.12, 41.72),
 ('R/ship Assess Score', 'Both High', 4.10, 0.98, 17.19),
-('Bad Health', 'Both High', 14.73, 2.97, 73.17,
-('High Stress', 'Both High', 11.78, 3.10, 44.72)
+('Bad Health', 'Both High', 14.73, 2.97, 73.17),
+('High Stress', 'Both High', 11.78, 3.10, 44.72),
 ('Anxiety', 'Both High', 91.97, 13.38, 632.07),
-('Depression', 'Both High', 17.42, 2.14, 141.78),
-;
+('Depression', 'Both High', 17.42, 2.14, 141.78);
+
+-- VERIFY DATA INTEGRITY
+SELECT * FROM aces_and_partner_rships.regression_results;
+
+
+
+-- =========================================================
+-- Derived Flow View (ACE → Relationship → Outcome)
+-- =========================================================
+CREATE OR REPLACE VIEW aces_and_partner_rships.relationship_outcomes_long AS
+SELECT ace_group, 'Low Income'          AS outcome, low_income  AS value FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL SELECT ace_group, 'Low Education', low_education FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL SELECT ace_group, 'Bad Spousal Support', bad_spousal_support FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL SELECT ace_group, 'Depression', depression FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL SELECT ace_group, 'Anxiety', anxiety FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL SELECT ace_group, 'High Stress', stress FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL SELECT ace_group, 'Bad Health', bad_health FROM aces_and_partner_rships.relationship_outcomes;
+-- =========================================================
+
+
+-- 2A: edges from ACE category -> ACE group (we map all ACE categories to the 'both_high' group for flow strength)
+CREATE OR REPLACE VIEW aces_and_partner_rships.ace_to_group_edges AS
+SELECT
+  a.ace_category AS source,
+  'both_high'     AS target,
+  a.adjusted_odds_ratio::numeric AS weight,
+  'ace_to_group'  AS edge_type
+FROM aces_and_partner_rships.ace_pair_associations a;
+
+-- 2B: edges from ACE group -> outcomes (value is percentage from relationship_outcomes_long)
+CREATE OR REPLACE VIEW aces_and_partner_rships.group_to_outcome_edges AS
+SELECT
+  r.ace_group    AS source,
+  r.outcome      AS target,
+  r.value::numeric AS weight,
+  'group_to_outcome' AS edge_type
+FROM aces_and_partner_rships.relationship_outcomes_long r;
+
+-- 2C: Combined Sankey flow view (ACE -> group -> outcome). This unions both edge sets.
+CREATE OR REPLACE VIEW aces_and_partner_rships.ace_relationship_flow AS
+SELECT source, target, weight, edge_type FROM aces_and_partner_rships.ace_to_group_edges
+UNION ALL
+SELECT source, target, weight, edge_type FROM aces_and_partner_rships.group_to_outcome_edges;
+
+
+SELECT * FROM aces_and_partner_rships.ace_to_group_edges ORDER BY weight DESC;
+
+SELECT * FROM aces_and_partner_rships.group_to_outcome_edges WHERE source = 'both_high' ORDER BY weight DESC;
+
+SELECT * FROM aces_and_partner_rships.ace_relationship_flow;
+
+
