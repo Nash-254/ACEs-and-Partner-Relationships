@@ -59,7 +59,8 @@ ORDER BY adjusted_odds_ratio DESC;
 
 -- TABLE CREATION
 CREATE TABLE aces_and_partner_rships.relationship_outcomes (
-    ace_group VARCHAR(20) PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+    ace_group VARCHAR(20),
     low_education NUMERIC(5,1),
     low_income NUMERIC(5,1),
     bad_spousal_support NUMERIC(5,1),
@@ -67,19 +68,37 @@ CREATE TABLE aces_and_partner_rships.relationship_outcomes (
     bad_health NUMERIC(5,1),
     stress NUMERIC(5,1),
     anxiety NUMERIC(5,1),
-    depression NUMERIC(5,1),
-    p_value NUMERIC(5,3)    
+    depression NUMERIC(5,1) 
 );
 
 -- DATA INSERTION
 INSERT INTO aces_and_partner_rships.relationship_outcomes
-(ace_group, low_education, low_income, bad_spousal_support, rshp_assess_score, bad_health, stress, anxiety, depression, p_value)
+(ace_group, low_education, low_income, bad_spousal_support, rshp_assess_score, bad_health, stress, anxiety, depression)
 VALUES
 ('none', 19.0, 6.4, 5.1, 9.6, 5.2, 5.8, 0, 0),
-('0-3_both', 24.4, 10.6, 5.6, 9.8, 10.8, 8.0, 0.6, 0.6),
-('mother_high', 28.2, 16.2, 9.5, 16.4, 14.9, 20.4, 2.7, 2.7),
-('partner_high', 20.4, 16.4, 9.1, 18.2, 21.8, 20.4, 5.4, 1.8),
-('both_high', 66.7, 33.3, 33.3, 26.7, 60.0, 20.0, 13.3);
+('Both 0-3', 24.4, 10.6, 5.6, 9.8, 10.8, 8.0, 0.6, 0.6),
+('Mother High', 28.2, 16.2, 9.5, 16.4, 14.9, 20.4, 2.7, 2.7),
+('Partner High', 20.4, 16.4, 9.1, 18.2, 21.8, 20.4, 5.4, 1.8),
+('Both High', 66.7, 33.3, 33.3, 26.7, 40.0, 60.0, 20.0, 13.3);
 
 -- VERIFY DATA INTEGRITY
-SELECT * FROM relationship_outcomes;
+SELECT * FROM aces_and_partner_rships.relationship_outcomes;
+
+-- DATA QUERY ANALYSIS
+-- Query to show Proportions of outcome measures related to groups of couples with different numbers of ACE category exposure
+SELECT
+    ace_group,
+    'Low Income' AS outcome, low_income AS value FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL
+SELECT ace_group, 'Low Education', low_education FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL
+SELECT ace_group, 'Bad Spousal Support', bad_spousal_support FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL
+SELECT ace_group, 'Depression', depression FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL
+SELECT ace_group, 'Anxiety', anxiety FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL
+SELECT ace_group, 'High Stress', stress FROM aces_and_partner_rships.relationship_outcomes
+UNION ALL
+SELECT ace_group, 'Bad Health', bad_health FROM aces_and_partner_rships.relationship_outcomes
+ORDER BY outcome, value DESC;
