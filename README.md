@@ -33,8 +33,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 
 ## Data Analysis
 ### 1. Assortative Mating
-
-Insights
+**Insights**
 - Childhood adversity clusters within couples—an early-life echo shaping partner choice.
 ![Assortative mating](/visuals/1.assortative_mating.png)
 
