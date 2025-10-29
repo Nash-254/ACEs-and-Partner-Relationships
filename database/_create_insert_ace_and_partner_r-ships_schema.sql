@@ -109,51 +109,8 @@ ORDER BY outcome, value DESC;
 
 
 
--- ================================================================================
---3. Table creation, data insert and queries for multiple ordinal regression to determine the adjusted Odds Ratios (aOR) for various unfavorable outcomes based on ACE exposure groups, using couples with zero ACE exposure as the reference group.
--- Source: "Adverse Childhood Experiences are associated with choice of partner, both partners' relationship and psychosocial health as reported one year after birth of a common child. A cross-sectional study"; Table 5.
--- ================================================================================
--- TABLE CREATION
-CREATE TABLE aces_and_partner_rships.regression_results (
-    id SERIAL PRIMARY KEY,
-    outcome VARCHAR(50),
-    ace_group VARCHAR(20),
-    adjusted_odds_ratio NUMERIC(10,2),
-    ci_low NUMERIC(10,2),
-    ci_high NUMERIC(10,2)
-);
-
--- DATA INSERTION
-INSERT INTO aces_and_partner_rships.regression_results
-(outcome, ace_group, adjusted_odds_ratio, ci_low, ci_high)
-VALUES
-('Low Education', 'Both High', 16.13, 3.30, 78.90),
-('Low Income', 'Both High', 3.25, 0.77, 13.68),
-('Bad Spousal Support', 'Both High', 9.39, 2.12, 41.72),
-('R/ship Assess Score', 'Both High', 4.10, 0.98, 17.19),
-('Bad Health', 'Both High', 14.73, 2.97, 73.17),
-('High Stress', 'Both High', 11.78, 3.10, 44.72),
-('Anxiety', 'Both High', 91.97, 13.38, 632.07),
-('Depression', 'Both High', 17.42, 2.14, 141.78);
-
--- VERIFY DATA INTEGRITY
-SELECT * FROM aces_and_partner_rships.regression_results;
-
--- DATA QUERY ANALYSIS
--- Query to show adjusted Odds Ratios (aOR) for various unfavorable outcomes based on ACE exposure groups
-SELECT 
-    outcome,
-    adjusted_odds_ratio AS or_value,
-    ci_low,
-    ci_high
-FROM aces_and_partner_rships.regression_results
-ORDER BY adjusted_odds_ratio DESC;
-
-
-
-
 -- =============================================================================
--- ACE -> OUTCOME FLOW VIEWS FOR SANKEY DIAGRAM
+-- ACE CATEGORY EXPOSURE GROUP -> OUTCOME FLOW VIEWS FOR SANKEY DIAGRAM
 -- =============================================================================
 CREATE OR REPLACE VIEW aces_and_partner_rships.relationship_outcomes_long AS
 SELECT ace_group, 'Low Income' AS outcome, low_income  AS value FROM aces_and_partner_rships.relationship_outcomes
@@ -174,4 +131,52 @@ FROM aces_and_partner_rships.relationship_outcomes_long;
 
 SELECT * FROM aces_and_partner_rships.group_to_outcome_flow ORDER BY source, target;
 --===============================================================================
+
+
+
+
+-- ================================================================================
+--3. Table creation, data insert and queries for multiple ordinal regression to determine the adjusted Odds Ratios (aOR) for various unfavorable outcomes based on ACE exposure groups, using couples with zero ACE exposure as the reference group.
+-- Source: "Adverse Childhood Experiences are associated with choice of partner, both partners' relationship and psychosocial health as reported one year after birth of a common child. A cross-sectional study"; Table 5.
+-- ================================================================================
+-- TABLE CREATION
+--CREATE TABLE aces_and_partner_rships.regression_results (
+    --id SERIAL PRIMARY KEY,
+    --outcome VARCHAR(50),
+    --ace_group VARCHAR(20),
+    --adjusted_odds_ratio NUMERIC(10,2),
+    --ci_low NUMERIC(10,2),
+    --ci_high NUMERIC(10,2)
+--);
+
+-- DATA INSERTION
+--INSERT INTO aces_and_partner_rships.regression_results
+--(outcome, ace_group, adjusted_odds_ratio, ci_low, ci_high)
+--VALUES
+--('Low Education', 'Both High', 16.13, 3.30, 78.90),
+--('Low Income', 'Both High', 3.25, 0.77, 13.68),
+--('Bad Spousal Support', 'Both High', 9.39, 2.12, 41.72),
+--('R/ship Assess Score', 'Both High', 4.10, 0.98, 17.19),
+--('Bad Health', 'Both High', 14.73, 2.97, 73.17),
+--('High Stress', 'Both High', 11.78, 3.10, 44.72),
+--('Anxiety', 'Both High', 91.97, 13.38, 632.07),
+--('Depression', 'Both High', 17.42, 2.14, 141.78);
+
+-- VERIFY DATA INTEGRITY
+--SELECT * FROM aces_and_partner_rships.regression_results;
+
+-- DATA QUERY ANALYSIS
+--Query to show adjusted Odds Ratios (aOR) for various unfavorable outcomes based on ACE exposure groups
+--SELECT 
+    --outcome,
+    --adjusted_odds_ratio AS or_value,
+    --ci_low,
+    --ci_high
+--FROM aces_and_partner_rships.regression_results
+--ORDER BY adjusted_odds_ratio DESC;
+
+
+
+
+
 
