@@ -48,6 +48,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 ![ACE category group exposure to outcome flow](/visuals/3.ace_category_group_to_outcome_flow.png)
 **Figure 3.** ACE category group exposure to outcomes flow
 
+See [ACEs and Partner Relationships notebook](/notebooks/ACEs_and_Partner_Relationships_notebook.ipynb) for detailed analysis process.
 
 ###  References
 
