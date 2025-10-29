@@ -35,6 +35,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 ### 1. Assortative Mating
 **Insights**
 - Childhood adversity clusters within couples—an early-life echo shaping partner choice.
+- Sexual abuse ranks highest in the shared Trauma experienced.
 ![Assortative mating](/visuals/1.assortative_mating.png)
 **Figure 1.** Assortative mating in couples sharing the same early-life adversities.
 ### 2. Cumulative impact of shared ACE exposure on relationship and family outcomes
