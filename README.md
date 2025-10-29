@@ -41,6 +41,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 ### 2. Cumulative impact of shared ACE exposure on relationship and family outcomes
 - When both partners carry heavy ACE histories, economic, emotional, and health burdens compound—showing the cumulative cost of shared trauma.
 - Negative outcomes **steadily rises** from no ACEs experienced to those with more that 4 ACEs in couples.
+- **Low education**, followed by **High stress** and low income indicate the strained relationship dynamic that exists in the affecyed partnerships. 
 ![Cumulative outcomes](/visuals/2.cummulative_outcomes.png)
 **Figure 2.** Cumulative outcomes of ACEs in socioeconomic, health and relational quality
 
