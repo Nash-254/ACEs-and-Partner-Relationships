@@ -44,7 +44,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 - When both partners carry heavy ACE histories, economic, emotional, and health burdens compound—showing the **cumulative cost** of shared trauma.
 - Negative outcomes **steadily rises** from no ACEs experienced to those with more that 4 ACEs in couples.
 - **Low education**, followed by **High stress** and low income are the top 3 outcomes. 
-- **Dual High Exposure**: Partners who both have experienced early-life traumas result in a relationship and family dynamic of **high stress** and **socioeconomic disadvantage** of low education and income. (Figure 3)
+- **Dual High Exposure**: Partners who both have experienced hight early-life traumas (ACE >=4) result in a relationship and family dynamic of **high stress** and **socioeconomic disadvantage** of low education and income. (Figure 3)
   
 ![Cumulative outcomes](/visuals/2.cummulative_outcomes.png)
 **Figure 2.** Cumulative outcomes of ACEs in socioeconomic, health and relational quality.
