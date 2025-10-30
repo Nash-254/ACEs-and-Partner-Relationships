@@ -20,7 +20,7 @@ The project aims to:
 - Compare socioeconomic, emotional, and health outcomes across ACE exposure groups (none:ACE=0, both 0-3:ACE=0-3, one partner high:ACE>=4 and both partners high:ACE>=4) to determine how shared childhood adversity affects relationship quality and family well-being. [^2]
 
 ## Tools & Technologies Used
-A hybrid approach integrated **SQL-based** databases’ robust capabilities in data extraction, schema design, and structured data management with **Python’s** powerful statistical analysis and rich visualization tools, delivering a workflow that was both methodologically efficient and insight-driven.
+A hybrid approach integrated **SQL-based** databases’ robust capabilities in data extraction, schema design, and structured data management with **Python’ powerful statistical analysis** and **rich visualization tools**, delivering a workflow that was both methodologically efficient and insight-driven.
 - **PostgreSQL**: Schema design and initial data analysis using SQL.
 - **Python**: Main programming language used.
   - **SQLAlchemy + psycopg2**: For working with SQL databases directly within Python; database connection and analysis queries.
