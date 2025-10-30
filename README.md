@@ -6,17 +6,17 @@ This project explores how **Adverse Childhood Experiences (ACEs)** shape adult r
 ## Data Source
 The data used in this project is drawn from **peer-reviewed journals** mainly from [Plos.org](https://journals.plos.org/plosone/).
 
-The data in the studies was obtained from 818 couples in Sweden and a large sample of functionally independent older Japanese adults aged 65+ yrs.
+The data in the studies was obtained from 818 couples in Sweden.
 
 See ***References*** section for citation details.
 
 ## Project Objectives
 The project aims to:
 
-**1. To examine assortative mating by adversity**
+**1. Examine assortative mating by adversity**
 - Identify patterns of partner similarity in reported Adverse Childhood Experiences (ACEs) and determine whether individuals with specific ACE histories are more likely to pair with partners who share similar experiences. [^1]
 
-**2. To assess the cumulative impact of shared ACE exposure on relationship and family outcomes**
+**2. Assess the cumulative impact of shared ACE exposure on relationship and family outcomes**
 - Compare socioeconomic, emotional, and health outcomes across ACE exposure groups (none, one partner high, both high) to determine how shared childhood adversity affects relationship quality and family well-being. [^2]
 
 ## Tools & Technologies Used
@@ -44,7 +44,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 - When both partners carry heavy ACE histories, economic, emotional, and health burdens compound—showing the **cumulative cost** of shared trauma.
 - Negative outcomes **steadily rises** from no ACEs experienced to those with more that 4 ACEs in couples.
 - **Low education**, followed by **High stress** and low income are the top 3 outcomes. 
-- **Dual High Exposure**: Partners who both have experienced hight early-life traumas (ACE >=4) result in a relationship and family dynamic of **high stress** and **socioeconomic disadvantage** of low education and income. (Figure 3)
+- **Dual High Exposure**: Partners who both have experienced high early-life traumas (ACE >=4) result in a relationship and family dynamic of **high stress** and **socioeconomic disadvantage** of low education and income. (Figure 3)
   
 ![Cumulative outcomes](/visuals/2.cummulative_outcomes.png)
 **Figure 2.** Cumulative outcomes of ACEs in socioeconomic, health and relational quality.
