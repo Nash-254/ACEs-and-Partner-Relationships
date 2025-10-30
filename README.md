@@ -20,7 +20,7 @@ The project aims to:
 - Compare socioeconomic, emotional, and health outcomes across ACE exposure groups (none, one partner high and both partners high) to determine how shared childhood adversity affects relationship quality and family well-being. [^2]
 
 ## Tools & Technologies Used
-A hybrid approach integrated **SQL’s efficiency** in data extraction, schema design, and structured data management with **Python’s powerful statistical analysis** and **rich visualization** capabilities, delivering a workflow that was both efficient and insight-driven.
+A hybrid approach integrated **SQL-based** databases’ robust capabilities in data extraction, schema design, and structured data management with **Python’s** powerful statistical analysis and rich visualization tools, delivering a workflow that was both methodologically efficient and insight-driven.
 - **PostgreSQL**: Schema design and initial data analysis using SQL.
 - **Python**: Main programming language used.
   - **SQLAlchemy + psycopg2**: For working with SQL databases directly within Python; database connection and analysis queries.
@@ -56,7 +56,7 @@ A hybrid approach integrated **SQL’s efficiency** in data extraction, schema d
 See [ACEs and Partner Relationships notebook](/notebooks/ACEs_and_Partner_Relationships_notebook.ipynb) for detailed analysis process.
 
 ## Conclusion
-This project underscores how **Adverse Childhood Experiences (ACEs)** (can) shape adult relationships and family life. When **both partners carry the weight of early adversity, the challenges of economic hardship, emotional strain, and health difficulties often multiply**. Yet, these patterns also highlight opportunity — the chance to break cycles of trauma through awareness, empathy, and support. 
+This project underscores how **Adverse Childhood Experiences (ACEs)** (can) shape adult relationships and family life. When **both partners carry the weight of early adversity, the challenges of economic hardship, emotional strain, and health difficulties often multiply**. Yet, these patterns also highlight opportunity; the chance to break cycles of trauma through **awareness, empathy, and support**. 
 
 Breaking the cycle of adversity begins with understanding and compassion. Every effort to recognize, discuss, and address the lingering effects of childhood trauma can change the trajectory of a family’s future. By investing in **trauma-informed education, counseling, and community support,** we can **empower individuals and couples to heal together** — turning past pain into strength, and building families grounded in resilience, empathy, and hope.
 
