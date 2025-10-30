@@ -1,7 +1,7 @@
 # ACEs and Partner Relationships
 
 ## Project Overview
-This project explores how **Adverse Childhood Experiences (ACEs)** shape adult relationships, partner choice, and long-term family outcomes. It seeks to investigates the phenomenon of **assortative mating by adversity**—the tendency for individuals with similar ACE histories to form partnerships—and examines how **shared childhood trauma affects relationship quality, mental + physical health, and socioeconomic well-being.**
+This project explores how **Adverse Childhood Experiences (ACEs)** shape adult relationships, partner choice, and long-term family outcomes. It seeks to investigates the phenomenon of **assortative mating by adversity**-the tendency for individuals with similar ACE histories to form partnerships-and examines how **shared childhood trauma affects relationship quality, mental + physical health, and socioeconomic well-being.**
 
 ## Data Source
 The data used in this project is drawn from **peer-reviewed journals** mainly from [Plos.org](https://journals.plos.org/plosone/).
@@ -34,14 +34,14 @@ A hybrid approach integrated **SQL-based** databases’ robust capabilities in d
 ## Data Analysis
 ### 1. Assortative Mating
 **Insights**
-- Childhood adversity clusters within couples—an early-life echo shaping partner choice.
+- Childhood adversity tends to cluster within couples, reflecting an early-life imprint that shapes partner selection.
 - Sexual abuse ranks highest in the shared Trauma experienced.
   
 ![Assortative mating](/visuals/1.assortative_mating.png)
 **Figure 1.** Assortative mating in couples sharing the same early-life adversities
 
 ### 2. Cumulative impact of shared ACE exposure on relationship and family outcomes
-- When both partners carry heavy ACE histories, economic, emotional, and health burdens compound—showing the **cumulative cost** of shared trauma.
+- When both partners carry heavy ACE histories, economic, emotional, and health burdens compound, showing the **cumulative cost** of shared trauma.
 - Negative outcomes **steadily rises** from no ACEs experienced to those with more that 4 ACEs in couples.
 - **Low education**, followed by **High stress** and low income are the top 3 outcomes. 
 - **Dual High Exposure**: Partners who both have experienced high early-life traumas (ACE >=4) result in a relationship and family dynamic of **high stress** and **socioeconomic disadvantage** of low education and income. (Figure 3)
@@ -58,7 +58,7 @@ See [ACEs and Partner Relationships notebook](/notebooks/ACEs_and_Partner_Relati
 ## Conclusion
 This project underscores how **Adverse Childhood Experiences (ACEs)** (can) shape adult relationships and family life. When **both partners carry the weight of early adversity, the challenges of economic hardship, emotional strain, and health difficulties often multiply**. Yet, these patterns also highlight opportunity; the chance to break cycles of trauma through **awareness, empathy, and support**. 
 
-Breaking the cycle of adversity begins with understanding and compassion. Every effort to recognize, discuss, and address the lingering effects of childhood trauma can change the trajectory of a family’s future. By investing in **trauma-informed education, counseling, and community support,** we can **empower individuals and couples to heal together** — turning past pain into strength, and building families grounded in resilience, empathy, and hope.
+Breaking the cycle of adversity begins with understanding and compassion. Every effort to recognize, discuss, and address the lingering effects of childhood trauma can change the trajectory of a family’s future. By investing in **trauma-informed education, counseling, and community support,** we can **empower individuals and couples to heal together** This will result in turning past pain into strength, and building families grounded in resilience, empathy, and hope.
 
 
 ###  References
