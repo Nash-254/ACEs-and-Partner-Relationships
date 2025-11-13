@@ -46,7 +46,7 @@ A hybrid approach integrated **SQL-based** databases’ robust capabilities in d
 - **Low education**, followed by **High stress** and low income are the top 3 outcomes. 
 - **Dual High Exposure**: Partners who both have experienced high early-life traumas (ACE >=4) result in a relationship and family dynamic of **high stress** and **socioeconomic disadvantage** of low education and income. (Figure 3)
   
-![Cumulative outcomes](/visuals/2.cummulative_outcomes.png)
+![Cumulative outcomes](/visuals/2.cummulative_outcomes-2.png)
 **Figure 2.** Cumulative outcomes of ACEs in socioeconomic, health and relational quality.
 
 ![ACE category group exposure to outcome flow](/visuals/3.ace_category_group_to_outcome_flow.png)
